@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./NewsCard.css";
-import saveIcon from "../../assets/save-icon.svg";
-import saveIconHover from "../../assets/save-article-hover.svg";
-import saveIconSaved from "../../assets/save-article-saved.svg";
-import deleteIcon from "../../assets/delete-article-icon.svg";
-import deleteIconHover from "../../assets/delete-article-hover.svg";
+import saveIcon from "../../assets/saved-icon.svg";
+import saveIconHover from "../../assets/saveIconHover.svg";
+import saveIconSaved from "../../assets/saveIconSaved.svg";
+import deleteIcon from "../../assets/deleteIcon.svg";
+import deleteIconHover from "../../assets/deleteiconHover.svg";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 function NewsCard({
