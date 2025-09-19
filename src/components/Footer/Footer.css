@@ -1,0 +1,30 @@
+.footer {
+  background-color: #f6f6f6;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 100px;
+  padding: 32px;
+}
+
+.footer__container {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 2.5;
+  color: #b6b9bf;
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    margin: 0 40px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .footer {
+    flex-direction: column;
+    margin: 0 16px;
+    padding: 20px 0 22px;
+    gap: 20px;
+  }
+}
