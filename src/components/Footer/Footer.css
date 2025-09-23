@@ -4,14 +4,19 @@
   justify-content: space-between;
   margin: 0 100px;
   padding: 32px;
+  width: 100%;
 }
 
 .footer__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   font-size: 18px;
   font-weight: 400;
   line-height: 2.5;
-  color: #b6b9bf;
+  color: #000000;
   margin: 0;
+  width: 100%;
 }
 
 @media screen and (max-width: 768px) {

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useLocation, NavLink } from "react-router-dom";
 import "./Navigation.css";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import  CurrentUserContext  from "../../contexts/CurrentUserContext";
 import github from "../../assets/github.svg";
 import LinkedIn from "../../assets/LinkedIn.svg";
 import logouticonblack from "../../assets/logouticonblack.svg";
