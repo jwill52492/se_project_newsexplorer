@@ -21,11 +21,13 @@
 .header__menu-icon {
   width: 24px;
   height: 24px;
+  color: #fff;
 }
 
 .header__menu-button {
   display: none;
   background: transparent;
+  color: #fff;
   border: none;
   height: 24px;
   width: 24px;

@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-top: 1px solid rgb(209, 210, 214);
+  border-top: 1px solid #d1d2d6;
+  background-image: url(../../assets/Pbackground.svg);
 }
 
 .main__content {
@@ -48,14 +49,14 @@
   width: 288px;
   border-radius: 80px;
   border: none;
-  background-color: rgb(255, 255, 255);
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
-  cursor: url(../../assets/custom-cursor-pointer.svg) 0 0, pointer;
+  cursor: url(../../assets/cursor.svg) 0 0, pointer;
 }
 
 .main__search-results-expand-button:hover {
-  background-color: rgba(232, 232, 232, 0.9);
+  background-color: #ffffff;
 }
 
 .main__preloader-text {
@@ -99,6 +100,7 @@
 @media screen and (max-width: 768px) {
   .main__content {
     max-width: 452px;
+    margin: 0;
   }
 
   .main__title {

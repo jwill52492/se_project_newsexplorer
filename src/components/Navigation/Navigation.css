@@ -27,7 +27,7 @@
   right: -5px;
   bottom: -28px;
   height: 3px;
-  background-color: #ffffff;
+  color: #ffffff;
 }
 
 .navigation__saved-news_active::after {

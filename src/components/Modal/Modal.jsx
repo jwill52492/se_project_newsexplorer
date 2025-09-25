@@ -1,5 +1,6 @@
 import "./Modal.css";
 import useModalClose from "../../hooks/useModalClose";
+import close from "../../assets/close.svg";
 
 function Modal({
   name,
@@ -25,7 +26,9 @@ function Modal({
             closeButtonType ? `modal__close-button_type_${closeButtonType}` : ""
           }`}
           onClick={onClose}
-        ></button>
+        >
+          <img src={close} alt="Close" />
+        </button>
       </div>
     </div>
   );
