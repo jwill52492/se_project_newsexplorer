@@ -3,7 +3,7 @@ import { useLocation, NavLink } from "react-router-dom";
 import "./Navigation.css";
 import  CurrentUserContext  from "../../contexts/CurrentUserContext";
 import github from "../../assets/github.svg";
-import LinkedIn from "../../assets/LinkedIn.svg";
+import linkedinIcon from '../../assets/LinkedIn.svg';
 import logouticonblack from "../../assets/logouticonblack.svg";
 
 function Navigation({
@@ -51,7 +51,7 @@ function Navigation({
           className="navigation__linkedin-link"
         >
           <img
-            src={LinkedIn}
+            src={linkedinIcon}
             alt="linkedin icon"
             className="navigation__logo"
           />
