@@ -1,0 +1,24 @@
+.page {
+  font-family: "Roboto", "Times New Roman", Times, sans-serif;
+  max-width: 1440px;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.page__content {
+  max-width: 1440px;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.page__background {
+  background:  url('/assets/background.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex: 1 0 auto;
+}

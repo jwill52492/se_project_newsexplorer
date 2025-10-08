@@ -1,0 +1,12 @@
+.mobile-menu__title {
+  color: #ffffff;
+  margin: 0;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 16px 0 16px 16px;
+}
+
+.mobile-menu__title-container {
+  border-bottom: 1px solid #d1d2d6;
+}

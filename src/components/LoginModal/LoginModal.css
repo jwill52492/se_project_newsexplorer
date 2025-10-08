@@ -1,0 +1,26 @@
+.signup__button {
+  background-color: transparent;
+  border-radius: none;
+  border: none;
+  color: #00000080;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.modal__submit {
+  border-radius: 4px;
+  gap: 8px;
+  padding: 8px 16px;
+  width: 120px;
+  color:#ffffff;
+  background-color: #000000;
+  border: none;
+}
+
+.modal__submit:disabled {
+  background-color: #0000004D;
+}
+
+.modal__submit:hover {
+  background-color: #00000099;
+}
