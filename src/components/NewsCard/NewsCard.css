@@ -177,7 +177,7 @@
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 412px) {
   .news-card {
     width: 288px;
   }

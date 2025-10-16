@@ -61,7 +61,7 @@
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 412px) {
   .footer__container {
     flex-direction: column-reverse;
     align-items: center;

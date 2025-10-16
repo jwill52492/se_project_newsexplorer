@@ -15,7 +15,7 @@
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 412px) {
   .news-card-list {
     padding: 24px 0 16px;
   }
