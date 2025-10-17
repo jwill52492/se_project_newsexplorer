@@ -5,21 +5,12 @@ const newsApiBaseUrl = process.env.NODE_ENV === "production"
   ? "https://nomoreparties.co/news/v2/everything?"
   : "https://newsapi.org/v2/everything?";
 
-const BACKEND_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:3001";
 
 function checkResponse(res) {
   if (res.ok) {
     return res.json();
   }
-  return res.json()
-    .then((data) => {
-      const error = new Error(`Error ${res.status}`);
-      error.data = data;
-      throw error;
-    })
-    .catch(() => {
-      throw new Error(`Error ${res.status}`);
-    });
+  return Promise.reject(`Error ${res.status}`);
 }
 
 function getDateFromDaysAgo(days) {
@@ -39,16 +30,16 @@ function searchNews(query) {
   const url = `${newsApiBaseUrl}q=${encodeURIComponent(query)}&from=${fromDate}&to=${toDate}&pageSize=${PAGE_SIZE}&apiKey=${APIkey}`;
 
   return fetch(url)
-    .then(checkResponse)
-    .then(data => data.articles)
-    .catch(err => {
-      console.error('Error fetching news:', err);
-      throw err;
+    .then(function(response) {
+      if (response.ok) {
+        return response.json();
+      }
+      return Promise.reject(`Error: ${response.status}`);
     });
 }
 
 function getUserData(token) {
-  return fetch(`${BACKEND_BASE_URL}/users/me`, {
+  return fetch('https://api.newsexplorer.com/users/me', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -59,7 +50,7 @@ function getUserData(token) {
 }
 
 function getArticles(token) {
-  return fetch(`${BACKEND_BASE_URL}/articles`, {
+  return fetch('https://api.newsexplorer.com/articles', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -70,7 +61,7 @@ function getArticles(token) {
 }
 
 function addArticleSaved(article, token) {
-  return fetch(`${BACKEND_BASE_URL}/articles`, {
+  return fetch('https://api.newsexplorer.com/articles', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -82,7 +73,7 @@ function addArticleSaved(article, token) {
 }
 
 function removeArticleSaved(articleId, token) {
-  return fetch(`${BACKEND_BASE_URL}/articles/${articleId}`, {
+  return fetch(`https://api.newsexplorer.com/articles/${articleId}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -94,11 +85,7 @@ function removeArticleSaved(articleId, token) {
 
 function filterArticles(articles) {
   const token = localStorage.getItem("jwt");
-  if (!token) {
-    return Promise.resolve(
-      articles.map(article => ({ ...article, isSaved: false }))
-    );
-  }
+  if (!token) return articles.map(article => ({ ...article, isSaved: false }));
 
   return getArticles(token)
     .then(savedArticles => {

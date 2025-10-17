@@ -37,6 +37,7 @@
   line-height: 46px;
   font-weight: 400;
   margin: 80px 0 0 104px;
+  color: #000000;
 }
 
 .main__search-results-button-wrapper {
@@ -50,6 +51,7 @@
   border-radius: 80px;
   border: none;
   background-color: #ffffff;
+  color: #000000;
   display: flex;
   justify-content: center;
   cursor: url(../../assets/cursor.svg) 0 0, pointer;
