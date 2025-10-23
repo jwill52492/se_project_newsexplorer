@@ -25,3 +25,10 @@
   font-weight: 900;
   src: url(./fonts/RobotoSlab-ExtraBold.ttf) format("truetype");
 }
+
+@font-face {
+  font-family: 'Times New Roman', Times, serif;
+  font-style: normal;
+  font-weight: 400;
+  src: url(./fonts/TimesNewRoman.ttf) format("truetype");
+}
