@@ -6,30 +6,19 @@ const baseUrl = process.env.NODE_ENV === "production"
 
 
 const signup = (email, password, username ) => {
-  return fetch(`${baseUrl}/signup`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      email,
-      password,
-      username,
-    }),
-  }).then(checkResponse)
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ message: "User created successfully" });
+    }, 300);
+  })
 }
 
 const signin = (email, password) => {
-  return fetch(`${baseUrl}/signin`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      email,
-      password,
-    }),
-  }).then(checkResponse)
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ token: "fake-jwt-token" });
+    }, 300);
+  })
 }
 
 const getToken = (token) => {
@@ -40,6 +29,6 @@ const getToken = (token) => {
       Authorization: `Bearer ${token}`,
     },
   }).then(checkResponse)
-}
+};
 
 export { signup, signin, getToken };

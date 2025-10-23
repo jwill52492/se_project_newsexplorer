@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   border-top: 1px solid #d1d2d6;
-  background-image: url(../../assets/Pbackground.svg);
+  background-image: url(../../assets/Pbackground.svg) no-repeat;
 }
 
 .main__content {
