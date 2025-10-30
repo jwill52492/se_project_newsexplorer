@@ -1,10 +1,13 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import './SavedNewsPage.css';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import NewsCardList from '../NewsCardList/NewsCardList';
 
 const SavedNewsPage = ({ savedArticles }) => {
   const { currentUser } = useContext(CurrentUserContext);
+  const keywords = savedArticles.map(article => article.keyword);
+  const uniqueKeywords = [...new Set(keywords)];
+
 
   return (
     <section className="saved-news-page">

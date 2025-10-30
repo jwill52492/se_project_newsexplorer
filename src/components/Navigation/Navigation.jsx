@@ -5,6 +5,7 @@ import  CurrentUserContext  from "../../contexts/CurrentUserContext";
 import github from "../../assets/github.svg";
 import linkedinIcon from '../../assets/LinkedIn.svg';
 import logouticonblack from "../../assets/logouticonblack.svg";
+import logouticon from "../../assets/logouticon.svg";
 
 function Navigation({
   isFooter = false,
@@ -93,7 +94,7 @@ function Navigation({
       >
         {currentUser}{" "}
         <img
-          src={isSavedNewsRoute && !isMobile ? logouticonblack : logoutIcon}
+          src={isSavedNewsRoute && !isMobile ? logouticonblack : logouticon}
           alt="logout icon"
           className="navigation__logout"
         />

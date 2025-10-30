@@ -1,10 +1,27 @@
-.page {
-  font-family: "Roboto", "Times New Roman", Times, sans-serif;
-  width:100%;
+@import "../../vendor/fonts/font.css";
+
+body {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
+  align-items: center;
+  background-color: var(--bg-color, #ffffff);
+  min-height: 100vh;
+  font-family: "Roboto Slab", "Inter", "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.page {
+  width:100%;
+  max-width: 1440px;
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bg-color, #ffffff);
 }
 
 .page__content {
@@ -14,12 +31,12 @@
   display: flex;
   flex-direction: column;
   padding: 0;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .page__background {
-  background:  url('/assets/background.svg');
-  background-repeat: no-repeat;
+  width: 100%;
+  background:  url('/assets/background.svg') no-repeat center center;
   background-size: cover;
   flex: 1 0 auto;
 }

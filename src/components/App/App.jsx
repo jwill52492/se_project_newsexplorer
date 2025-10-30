@@ -62,7 +62,7 @@ function App() {
   }, []);
 
   const handleDeleteArticle = (article) => {
-    deleteArticle(article._id)
+    removeArticleSaved(article)
       .then(() => {
         const tempArray = savedArticles.filter((item) => {
           return item !== article;
@@ -123,9 +123,15 @@ function App() {
       });
   };
 
-  const handleRegisterUser = () => {
+  const handleRegisterUser = ({ email, password, username }) => {
     signup(email, password, username)
-    handleRegisterSuccessModal();
+      .then(() => {
+        handleRegisterSuccessModal();
+      })
+      .catch((err) => {
+        console.error(err);
+        setSubmitError("An account with this email already exists.");
+      });
   };
 
   const handleLoginUser = ({ email, password }) => {

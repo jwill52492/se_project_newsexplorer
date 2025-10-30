@@ -5,7 +5,7 @@ const baseUrl = process.env.NODE_ENV === "production"
   : 'http://localhost:3001';
 
 
-const signup = (email, password, username ) => {
+const signup = (email, password, username) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve({ message: "User created successfully" });
