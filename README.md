@@ -10,4 +10,4 @@ Currently, two official plugins are available:
 
 # Deployment
 
-https://se-project-newsexplorer-169951279655.us-east1.run.app
+https://resplendent-pithivier-9905c1.netlify.app/
