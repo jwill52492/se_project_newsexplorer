@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Main.css";
 import "../SearchForm/SearchForm.css";
+import Header from "../Header/Header";
 import SearchForm from "../SearchForm/SearchForm";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import Preloader from "../Preloader/Preloader";
@@ -24,6 +25,7 @@ function Main({
 
   return (
     <main className="main">
+      <Header />
       <div className="main__content">
         <section className="search">
           <h2 className="main__title">What’s going on in the world?</h2>
