@@ -1,8 +1,20 @@
 .header {
   display: flex;
+  flex-direction: row;
   position: relative;
   justify-content: space-between;
-  margin: 0 104px;
+  padding: 0 104px;
+  align-items: center;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.header_type_saved-news {
+  position: relative;
 }
 
 .header__title {
@@ -10,7 +22,7 @@
   font-size: 20px;
   line-height: 24px;
   font-weight: 700;
-  margin: 30px 0 26px;
+  margin: 30px 0;
   text-decoration: none;
 }
 
@@ -40,21 +52,21 @@
 
 @media screen and (max-width: 768px) {
   .header {
-    margin: 0 40px;
+    padding: 0 40px;
   }
 
   .header__title {
-    margin: 22.73px 0 18.47px;
+    margin: 22px 0;
   }
 }
 
 @media screen and (max-width: 412px) {
   .header {
-    margin: 0 16px;
+    padding: 0 16px;
   }
 
   .header__title {
-    margin: 16px 0 16px;
+    margin: 16px 0;
   }
 
   .header__menu-button {
