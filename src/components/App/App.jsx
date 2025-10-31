@@ -173,11 +173,6 @@ function App() {
               element={
                 <>
                   <div className="page__background">
-                    <Header
-                      handleLoginModal={handleLoginModal}
-                      onLogout={handleLogoutModal}
-                      handleMobileMenuModal={handleMobileMenuModal}
-                    />
                     <Main
                       onSearch={handleSearch}
                       newsArticles={articles}
@@ -187,6 +182,9 @@ function App() {
                       isLoading={isLoading}
                       topic={topic}
                       submitError={submitError}
+                      handleLoginModal={handleLoginModal}
+                      onLogout={handleLogoutModal}
+                      handleMobileMenuModal={handleMobileMenuModal}
                     />
                   </div>
                   <About />
@@ -197,14 +195,12 @@ function App() {
               path="/saved-news"
               element={
                 <ProtectedRoute>
-                  <Header
-                    onLogout={handleLogoutModal}
-                    handleMobileMenuModal={handleMobileMenuModal}
-                  />
                   <SavedNewsPage
                     savedArticles={savedArticles}
                     onDeleteArticle={handleDeleteArticle}
                     savedArticleUrls={savedArticleUrls}
+                    onLogout={handleLogoutModal}
+                    handleMobileMenuModal={handleMobileMenuModal}
                   />
                 </ProtectedRoute>
               }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Main.css";
 import "../SearchForm/SearchForm.css";
+import "../Header/Header.css";
 import Header from "../Header/Header";
 import SearchForm from "../SearchForm/SearchForm";
 import NewsCardList from "../NewsCardList/NewsCardList";
@@ -16,6 +17,9 @@ function Main({
   isLoading,
   topic,
   submitError,
+  handleLoginModal,
+  onLogout,
+  handleMobileMenuModal,
 }) {
   const [displayCount, setDisplayCount] = useState(2);
 
@@ -25,6 +29,11 @@ function Main({
 
   return (
     <main className="main">
+      <Header
+        handleLoginModal={handleLoginModal}
+        onLogout={onLogout}
+        handleMobileMenuModal={handleMobileMenuModal}
+      />
       <div className="main__content">
         <section className="search">
           <h2 className="main__title">What’s going on in the world?</h2>
