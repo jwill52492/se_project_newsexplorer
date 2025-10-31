@@ -5,7 +5,7 @@ import saveIcon from "../../assets/saved-icon.svg";
 import saveIconHover from "../../assets/saveIconHover.svg";
 import saveIconSaved from "../../assets/saveIconSaved.svg";
 import deleteIcon from "../../assets/deleteIcon.svg";
-import deleteIconHover from "../../assets/deleteiconHover.svg";
+import deleteIconHover from "../../assets/deleteIconHover.svg";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 function NewsCard({
