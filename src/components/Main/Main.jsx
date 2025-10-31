@@ -25,7 +25,6 @@ function Main({
   return (
     <main className="main">
       <div className="main__content">
-        <Header />
         <section className="search">
           <h2 className="main__title">What’s going on in the world?</h2>
           <p className="main__subtitle">
