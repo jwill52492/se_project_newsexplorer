@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   border-top: 1px solid #d1d2d6;
+  background: transparent;
 }
 
 .main__content {
