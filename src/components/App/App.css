@@ -36,7 +36,7 @@ body {
 
 .page__background {
   width: 100%;
-  background:  url('/assets/background.svg') no-repeat center center;
+  background:  url('/assets/Pbackground.svg') no-repeat center center;
   background-size: cover;
   flex: 1 0 auto;
 }

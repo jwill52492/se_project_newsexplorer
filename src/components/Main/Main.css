@@ -3,9 +3,6 @@
   flex-direction: column;
   align-items: center;
   border-top: 1px solid #d1d2d6;
-  background-image: url(../../assets/Pbackground.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .main__content {

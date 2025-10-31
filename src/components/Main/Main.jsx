@@ -17,15 +17,14 @@ function Main({
   topic,
   submitError,
 }) {
-  const [displayCount, setDisplayCount] = useState(3);
+  const [displayCount, setDisplayCount] = useState(2);
 
   const updateDisplayCount = () => {
-    setDisplayCount(displayCount + 3);
+    setDisplayCount(displayCount + 1);
   };
 
   return (
     <main className="main">
-      <Header />
       <div className="main__content">
         <section className="search">
           <h2 className="main__title">What’s going on in the world?</h2>
