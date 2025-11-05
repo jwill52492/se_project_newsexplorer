@@ -5,39 +5,60 @@ import CurrentUserContext from '../../contexts/CurrentUserContext';
 import NewsCardList from '../NewsCardList/NewsCardList';
 import Header from '../Header/Header';
 
-const SavedNewsPage = ({ savedArticles, handleLogoutModal, handleMobileMenuModal }) => {
+const SavedNewsPage = ({ savedArticles = [], onSaveArticle, onDeleteArticle, onLogout, handleMobileMenuModal }) => {
   const { currentUser } = useContext(CurrentUserContext);
-  const keywords = savedArticles.map(article => article.keyword).filter(Boolean);
+  const keywords = (savedArticles || []).map(article => article.keyword).filter(Boolean);
   const uniqueKeywords = [...new Set(keywords)];
+  const articleCount = savedArticles.length;
+
+  const getKeywordSummary = () => {
+    if (uniqueKeywords.length === 0) return "";
+    if (uniqueKeywords.length === 1) return uniqueKeywords[0];
+    if (uniqueKeywords.length === 2)
+      return `${uniqueKeywords[0]} and ${uniqueKeywords[1]}`;
+    return `${uniqueKeywords[0]}, ${uniqueKeywords[1]}, and ${
+      uniqueKeywords.length - 2
+    } other${uniqueKeywords.length - 2 > 1 ? "s" : ""}`;
+  };
 
 
   return (
-    <section className="saved-news-page">
+    <section className="saved-news__page">
       <Header
-        onLogout={handleLogoutModal}
+        onLogout={onLogout}
         handleMobileMenuModal={handleMobileMenuModal}
       />
-      <NewsCardList
-        title="Saved Articles"
-        articleCount={savedArticles.length}
-        currentUser={currentUser}
-        keywords={uniqueKeywords}
-      />
+       <div className="saved-news__info">
+        <p className="saved-news__subtitle">Saved articles</p>
+        <h2 className="saved-news__title">
+          {currentUser
+            ? `${currentUser}, you have ${articleCount} saved article${
+                articleCount !== 1 ? 's' : ''
+              }`
+            : ''}
+        </h2>
+
+        {uniqueKeywords.length > 0 && (
+          <p className="saved-news__keywords">
+            By keywords: <strong>{getKeywordSummary()}</strong>
+          </p>
+        )}
+      </div>
+
       {savedArticles.length === 0 ? (
-        <p>No saved articles yet.</p>
+        <p className="saved-news__empty">No saved articles yet.</p>
       ) : (
-        <ul className="saved-news-list">
-          {savedArticles.map((article) => (
-            <li key={article._id || article.url} className="saved-news-item">
-              <h3>{article.title}</h3>
-              <p>{article.description}</p>
-              <a href={article.url} target="_blank" rel="noopener noreferrer">Read more</a>
-            </li>
-          ))}
-        </ul>
+        <NewsCardList
+          newsArticles={savedArticles}
+          onSaveArticle={onSaveArticle}
+          onDeleteArticle={onDeleteArticle}
+          savedArticles={savedArticles}
+          savedArticleUrls={new Set(savedArticles.map(article => article.url))}
+        />
       )}
     </section>
   );
 };
+
 
 export default SavedNewsPage;

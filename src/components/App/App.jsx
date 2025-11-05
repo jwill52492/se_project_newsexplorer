@@ -43,12 +43,13 @@ function App() {
   const handleRegisterSuccessModal = () => setActiveModal("success");
   const handleConfirmLogoutModal = () => setActiveModal("confirm-logout");
   const handleMobileMenuModal = () => setActiveModal("mobile-menu");
-  const handleCloseModal = () => setActiveModal("");
+  const handleCloseModal = () => setActiveModal(null);
 
   const handleSaveArticle = (article) => {
+    const token =getToken();
     saveArticle(article)
       .then((data) => {
-        setSavedArticles((prev) => [...prev, { ...data, topic }]);
+        setSavedArticles((prev) => [...prev, data]);
       })
       .catch(console.error);
   };
@@ -97,7 +98,6 @@ function App() {
           setSavedArticles(articles);
         })
         .catch(console.error);
-        deleteToken();
     }
   }, []);
 
@@ -177,6 +177,7 @@ function App() {
                       onSearch={handleSearch}
                       newsArticles={articles}
                       onSaveArticle={handleSaveArticle}
+                      onDeleteArticle={handleDeleteArticle}
                       savedArticles={savedArticles}
                       savedArticleUrls={savedArticleUrls}
                       isLoading={isLoading}
@@ -197,6 +198,7 @@ function App() {
                 <ProtectedRoute>
                   <SavedNewsPage
                     savedArticles={savedArticles}
+                    onSaveArticle={handleSaveArticle}
                     onDeleteArticle={handleDeleteArticle}
                     savedArticleUrls={savedArticleUrls}
                     onLogout={handleLogoutModal}

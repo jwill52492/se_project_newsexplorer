@@ -3,43 +3,33 @@ import "./NewsCardList.css";
 import NewsCard from "../NewsCard/NewsCard";
 
 function NewsCardList({
-  newsArticles,
-  displayCount,
-  savedArticles,
+  newsArticles = [],
+  displayCount = 0,
+  savedArticles = [],
   onSaveArticle,
   onDeleteArticle,
-  savedArticleUrls,
+  savedArticleUrls = [],
 }) {
   const location = useLocation();
   const isSavedNewsRoute = location.pathname.startsWith("/saved-news");
 
-  return !isSavedNewsRoute ? (
+ const articlesToRender = isSavedNewsRoute
+    ? savedArticles
+    : newsArticles.slice(0, displayCount);
+
+  return (
     <ul className="news-card-list">
-      {newsArticles.slice(0, displayCount).map((item, index) => {
-        return (
-          <NewsCard
-            key={index}
-            newsArticle={item}
-            onSaveArticle={onSaveArticle}
-            savedArticles={savedArticles}
-            savedArticleUrls={savedArticleUrls}
-          />
-        );
-      })}
-    </ul>
-  ) : (
-    <ul className="news-card-list">
-      {savedArticles.map((item, index) => {
-        return (
-          <NewsCard
-            key={index}
-            newsArticle={item}
-            onDeleteArticle={onDeleteArticle}
-            savedArticles={savedArticles}
-            savedArticleUrls={savedArticleUrls}
-          />
-        );
-      })}
+      {articlesToRender.map((article, index) => (
+        <NewsCard
+          key={article._id || article.url || index}
+          newsArticle={article}
+          onSaveArticle={onSaveArticle}
+          onDeleteArticle={onDeleteArticle}
+          savedArticles={savedArticles}
+          savedArticleUrls={savedArticleUrls}
+          isSavedNewsRoute={isSavedNewsRoute}
+        />
+      ))}
     </ul>
   );
 }

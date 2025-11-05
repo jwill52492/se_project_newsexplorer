@@ -92,7 +92,9 @@ function Navigation({
           isSavedNewsRoute && "navigation__profile_type_saved-news"
         }`}
       >
-        {currentUser}{" "}
+        <span className="navigation__username">
+          {currentUser?.name || "User"}
+        </span>
         <img
           src={isSavedNewsRoute && !isMobile ? logouticonblack : logouticon}
           alt="logout icon"

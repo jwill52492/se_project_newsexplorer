@@ -1,5 +1,6 @@
 import { APIkey, PAGE_SIZE, NEWS_API_FROM_DAYS } from './constants.js';
 
+let mockSavedArticles = JSON.parse(localStorage.getItem("savedArticles")) || [];
 
 const newsApiBaseUrl = process.env.NODE_ENV === "production"
   ? "https://nomoreparties.co/news/v2/everything?"
@@ -39,48 +40,51 @@ function searchNews(query) {
 }
 
 function getUserData(token) {
-  return fetch('https://api.newsexplorer.com/users/me', {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    },
-  })
-  .then(checkResponse);
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({
+        data: {
+          name: token === "user2" ? "Jane Smith" : "John Doe",
+          email: "user@example.com",
+        },
+      });
+    }, 300);
+  });
 }
 
-function getArticles(token) {
-  return fetch('https://api.newsexplorer.com/articles', {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    },
-  })
-  .then(checkResponse);
+function getArticles() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(mockSavedArticles);
+    }, 300);
+  });
 }
 
 function addArticleSaved(article, token) {
-  return fetch('https://api.newsexplorer.com/articles', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    },
-    body: JSON.stringify(article)
-  })
-  .then(checkResponse);
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const newArticle = {
+        ...article,
+        _id: Date.now().toString(),
+        keyword: article.keyword || article.topic || "General",
+      };
+      mockSavedArticles.push(newArticle);
+      localStorage.setItem("savedArticles", JSON.stringify(mockSavedArticles));
+      resolve(newArticle);
+    }, 200);
+  });
 }
 
 function removeArticleSaved(articleId, token) {
-  return fetch(`https://api.newsexplorer.com/articles/${articleId}`, {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    },
-  })
-  .then(checkResponse);
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      mockSavedArticles = mockSavedArticles.filter(
+        (a) => a._id !== article._id && a.url !== article.url
+      );
+      localStorage.setItem("savedArticles", JSON.stringify(mockSavedArticles));
+      resolve({ message: "Article removed" });
+    }, 200);
+  });
 }
 
 function filterArticles(articles) {

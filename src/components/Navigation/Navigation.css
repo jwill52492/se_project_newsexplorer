@@ -59,6 +59,11 @@
 }
 
 .navigation__profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
   background: none;
   border: none;
   cursor: pointer;
@@ -76,8 +81,9 @@
 }
 
 .navigation__logout {
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
 }
 
 .navigation__signin {

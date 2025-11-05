@@ -12,6 +12,7 @@ function Main({
   onSearch,
   newsArticles,
   onSaveArticle,
+  onDeleteArticle,
   savedArticles,
   savedArticleUrls,
   isLoading,
@@ -58,6 +59,7 @@ function Main({
                   newsArticles={newsArticles}
                   displayCount={displayCount}
                   onSaveArticle={onSaveArticle}
+                  onDeleteArticle={onDeleteArticle}
                   savedArticles={savedArticles}
                   savedArticleUrls={savedArticleUrls}
                 />
