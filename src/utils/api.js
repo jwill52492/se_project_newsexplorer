@@ -17,7 +17,7 @@ function checkResponse(res) {
 function getDateFromDaysAgo(days) {
   const date = new Date();
   date.setDate(date.getDate() - days);
-  return date.toISOString().split('T')[0]; // Format: YYYY-MM-DD
+  return date.toISOString().split('T')[0];
 }
 
 function getTodaysDate() {
@@ -79,7 +79,7 @@ function removeArticleSaved(articleId, token) {
   return new Promise((resolve) => {
     setTimeout(() => {
       mockSavedArticles = mockSavedArticles.filter(
-        (a) => a._id !== article._id && a.url !== article.url
+        (a) => a._id !== articleId
       );
       localStorage.setItem("savedArticles", JSON.stringify(mockSavedArticles));
       resolve({ message: "Article removed" });

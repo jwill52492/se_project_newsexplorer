@@ -63,15 +63,15 @@ function App() {
   }, []);
 
   const handleDeleteArticle = (article) => {
-    removeArticleSaved(article)
+    const token = getToken();
+    removeArticleSaved(article._id, token)
       .then(() => {
-        const tempArray = savedArticles.filter((item) => {
-          return item !== article;
-        });
-        setSavedArticles(tempArray);
-      })
-      .catch(console.error);
-  };
+        setSavedArticles((prev) =>
+        prev.filter((item) => item._id !== article._id)
+      );
+    })
+    .catch((error) => console.error("Error deleting article:", error));
+};
 
   const setToken = (token) => {
     localStorage.setItem("token", token);
