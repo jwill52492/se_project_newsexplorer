@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./Modal.css";
 import useModalClose from "../../hooks/useModalClose";
 import close from "../../assets/close.svg";
@@ -12,6 +13,13 @@ function Modal({
 }) {
   const isOpen = activeModal === name;
   useModalClose(isOpen, onClose);
+  useEffect(() => {
+  if (isOpen) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
+  }, [isOpen]);
   return (
     <div className={`modal modal_type_${name} ${isOpen && "modal_opened"}`}>
       <div

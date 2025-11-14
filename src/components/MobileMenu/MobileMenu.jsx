@@ -1,30 +1,32 @@
 import { Link } from "react-router-dom";
 import "./MobileMenu.css";
-import Navigation from "../Navigation/Navigation";
-import Modal from "../Modal/Modal";
 
-function MobileMenu({ activeModal, onClose, handleLoginModal, onLogout }) {
+function MobileMenu({ activeModal, onClose, handleLoginModal }) {
+  const isOpen = activeModal === "mobile-menu";
+
   return (
-    <Modal
-      activeModal={activeModal}
-      onClose={onClose}
-      name="mobile-menu"
-      containerType="mobile-menu"
-      closeButtonType="mobile-menu"
-    >
-      <div className="mobile-menu__title-container">
-        <h2 className="mobile-menu__title">
-          <Link to="/">NewsExplorer</Link>
-        </h2>
+    <div className={`mobile-menu-overlay ${isOpen ? "open" : ""}`}>
+      <div className="mobile-menu-panel">
+        <div className="mobile-menu-header">
+          <h2 className="mobile-menu-logo">
+            <Link to="/">NewsExplorer</Link>
+          </h2>
+
+          <button className="mobile-menu-close" onClick={onClose} />
+        </div>
+
+        <div className="mobile-menu-links">
+          <Link to="/" className="mobile-menu-link">Home</Link>
+
+          <button
+            className="mobile-menu-button"
+            onClick={handleLoginModal}
+          >
+            Sign in
+          </button>
+        </div>
       </div>
-      <div className="mobile-menu__navigation-container">
-        <Navigation
-          isMobile={true}
-          handleLoginModal={handleLoginModal}
-          onLogout={onLogout}
-        />
-      </div>
-    </Modal>
+    </div>
   );
 }
 

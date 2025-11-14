@@ -22,10 +22,10 @@ function Main({
   onLogout,
   handleMobileMenuModal,
 }) {
-  const [displayCount, setDisplayCount] = useState(2);
+  const [displayCount, setDisplayCount] = useState(3);
 
   const updateDisplayCount = () => {
-    setDisplayCount(displayCount + 1);
+    setDisplayCount(displayCount + 3);
   };
 
   return (

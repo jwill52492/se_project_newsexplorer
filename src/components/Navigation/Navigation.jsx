@@ -65,7 +65,6 @@ function Navigation({
         to="/"
         exact="true"
         className={({ isActive }) => {
-          console.log("is active in home button", isActive);
           return `navigation__home ${isActive && "navigation__home_active"} ${
             isSavedNewsRoute && "navigation__home_type_saved-news"
           } ${isMobile ? "navigation__home_type_loggedin-mobile" : ""}`;
