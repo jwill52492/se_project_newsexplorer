@@ -25,7 +25,8 @@ function About() {
         <p className="about__tripleten">
           Throughout TripleTen’s bootcamp, I went from no knowledge of coding to
           building full-stack applications in a little over a year, learning HTML, CSS,
-          JavaScript, React, Git, all while using GitHub.
+          JavaScript, React, Git, all while using GitHub. Now I am looking for a junior software engineering role where
+          I can continue to grow and learn as a developer.
         </p>
       </div>
     </div>
